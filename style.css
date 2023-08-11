@@ -4,6 +4,12 @@ body {
     margin: 0 auto;
 }
 
+button {
+    width: 100px;
+    height: 50px;
+    left: 50%;
+}
+
 #gridContainer{
     width: 800px;
     height: 800px;

@@ -1,6 +1,13 @@
 
 const gridContainer = document.getElementById("gridContainer");
+const button = document.getElementById("squareButton");
 
+button.onclick = function() {getSquareInput};
+
+function getSquareInput() {
+    let squares = prompt("enter squares");
+    
+}
 
 //
 
@@ -21,5 +28,7 @@ function generateGrid(size) {
         });
     }
 }
+
+
 
 generateGrid(16);
