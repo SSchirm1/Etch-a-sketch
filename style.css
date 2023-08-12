@@ -1,6 +1,6 @@
 
 body {
-    width: 1000px;
+
     margin: 0 auto;
     background: #241468;
     color: white;
@@ -9,11 +9,12 @@ body {
 
 h1 {
     font-size: 50px;
+    
 }
 
 .pageContent > * {
     text-align: center;
-  
+    height: 100%;
 }
 
 button {
@@ -22,11 +23,20 @@ button {
     left: 50%;
 }
 
+.header {
+    background: #EA1179;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 #gridContainer{
     width: 600px;
     height: 600px;
     background: purple;
     margin: 0 auto;
+    margin-top: 30px;
     display: grid;
     border: 10px solid white;
 }
@@ -35,6 +45,7 @@ button {
 .sliderContainer {
     left: 50%;
     width: 600px;
+    margin: 0 auto;
 }
 
 #myslider {

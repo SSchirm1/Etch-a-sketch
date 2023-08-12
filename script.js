@@ -1,17 +1,8 @@
 
 const gridContainer = document.getElementById("gridContainer");
-const button = document.getElementById("squareButton");
 const slider = document.getElementById("myslider");
 const sliderText = document.getElementById("sliderText");
 let colorIsRandom = true;
-
-
-
-button.addEventListener("click", function() {
-    let squares = prompt("enter squares");
-    generateGrid(squares);
-
-})
 
 slider.addEventListener("input", function() {
     let value = slider.value;
@@ -20,10 +11,6 @@ slider.addEventListener("input", function() {
     console.log(value);
 })
 
-
-
-
-//
 
 function generateGrid(size) {
     resetGridPainting();
