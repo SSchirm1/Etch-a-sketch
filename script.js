@@ -1,22 +1,32 @@
 
 const gridContainer = document.getElementById("gridContainer");
 const button = document.getElementById("squareButton");
+const slider = document.getElementById("myslider");
+const sliderText = document.getElementById("sliderText");
 let colorIsRandom = true;
 
 
 
 button.addEventListener("click", function() {
     let squares = prompt("enter squares");
-    resetGridPainting();
     generateGrid(squares);
 
 })
+
+slider.addEventListener("input", function() {
+    let value = slider.value;
+    generateGrid(value);
+    sliderText.innerHTML = "Grid size: " + value  + " x " + value;
+    console.log(value);
+})
+
 
 
 
 //
 
 function generateGrid(size) {
+    resetGridPainting();
     gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
@@ -51,12 +61,13 @@ function randomizeColors() {
         randomColor = Math.floor(255 * Math.random());
         randomRGB.push(randomColor);
     }
-    
-    console.log(randomRGB);
     let color = "rgb(" + randomRGB[0] + "," +  randomRGB[1] + "," +  randomRGB[2] + ")";
     return color;
 
 }
+
+
+
 
 generateGrid(16);
 randomizeColors();
