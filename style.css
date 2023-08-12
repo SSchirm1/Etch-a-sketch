@@ -2,7 +2,17 @@
 body {
     width: 1000px;
     margin: 0 auto;
-    background: lightsalmon;
+    background: #241468;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.pageContent > * {
+    text-align: center;
 }
 
 button {
@@ -17,7 +27,16 @@ button {
     background: purple;
     margin: 0 auto;
     display: grid;
-    border: 10px solid black;
-   
+    border: 10px solid white;
 }
 
+.sliderContainer {
+    left: 50%;
+    width: 600px;
+}
+
+#mySlider {
+    color: white;
+    width: 100%;
+    background-color: white;
+}

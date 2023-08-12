@@ -25,12 +25,12 @@ function generateGrid(size) {
         gridCell.className = "gridCell";
         gridContainer.appendChild(gridCell);
         gridCell.style.background = "white";
-        gridCell.style.border = "1px solid white";
+        gridCell.style.border = "1px solid lightgray";
 
         gridCell.addEventListener("mouseenter", (event) => {
             console.log("Mouse entered the element");
             if(!colorIsRandom) {
-                gridCell.style.backgroundColor = "blue";
+                gridCell.style.backgroundColor = "#EA1179";
             }
             else {
                 gridCell.style.background = randomizeColors();
