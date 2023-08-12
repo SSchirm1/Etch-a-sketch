@@ -2,6 +2,7 @@
 body {
     width: 1000px;
     margin: 0 auto;
+    background: lightsalmon;
 }
 
 button {
@@ -16,12 +17,7 @@ button {
     background: purple;
     margin: 0 auto;
     display: grid;
+    border: 10px solid black;
    
 }
 
-.gridBox {
-    width: 50px;
-    height: 50px;
-    background: yellow;
-    border: 2px solid black;
-}
