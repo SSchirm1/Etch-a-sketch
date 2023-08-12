@@ -3,6 +3,44 @@ const gridContainer = document.getElementById("gridContainer");
 const slider = document.getElementById("myslider");
 const sliderText = document.getElementById("sliderText");
 let colorIsRandom = true;
+let chosenColor = "#EA1179";
+
+button = document.getElementById("colorButton");
+
+button.addEventListener("click", function() {
+    colorIsRandom = !colorIsRandom;
+    console.log("color is random" + colorIsRandom);
+    if(colorIsRandom) {
+        button.innerHTML = "Rainbow mode";
+    }
+    else {
+        button.innerHTML = "One color mode";
+    }
+    changeColors()
+})
+
+function changeColors() {
+
+    console.log("changing colors");
+    let gridCells = document.getElementsByClassName("gridCell");
+    if (!colorIsRandom) {
+        
+        for(i = 0; i < gridCells.length; i++) {
+            if(gridCells[i].style.background != "white") {
+                gridCells[i].style.background = chosenColor;
+            }
+
+        }
+    }
+    else {
+        for(i = 0; i < gridCells.length; i++) {
+            if(gridCells[i].style.background == chosenColor) {
+                gridCells[i].style.background = randomizeColors();
+            }
+
+        }
+    }
+}
 
 slider.addEventListener("input", function() {
     let value = slider.value;
