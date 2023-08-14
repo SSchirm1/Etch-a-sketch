@@ -3,21 +3,76 @@ const gridContainer = document.getElementById("gridContainer");
 const slider = document.getElementById("myslider");
 const sliderText = document.getElementById("sliderText");
 let colorIsRandom = true;
+let isErasing = false;
 let chosenColor = "#EA1179";
 
-button = document.getElementById("colorButton");
+let colorButton = document.getElementById("colorButton");
+let eraseButton = document.getElementById("eraser");
 
-button.addEventListener("click", function() {
+
+eraseButton.style.background = "lightcoral";
+
+
+eraseButton.addEventListener("click", function() {
+    isErasing = !isErasing;
+    if (isErasing) {
+        eraseButton.style.background = "lightgreen";
+        erase();
+    }
+    else {
+        eraseButton.style.background = "lightcoral";
+    }
+    console.log("is erasing: " + isErasing);
+})
+
+function erase() {
+    let gridCells = document.getElementsByClassName("gridCell");
+
+    for (i = 0; i < gridCells.length; i++) {
+        gridCells[i].addEventListener("mouseover", function() {
+            console.log(gridCells[i]);
+            gridCells[i].style.background = "white";
+        })
+    }
+}
+
+colorButton.addEventListener("click", function() {
     colorIsRandom = !colorIsRandom;
     console.log("color is random" + colorIsRandom);
     if(colorIsRandom) {
-        button.innerHTML = "Rainbow mode";
+        colorButton.innerHTML = "Rainbow mode";
     }
     else {
-        button.innerHTML = "One color mode";
+        colorButton.innerHTML = "One color mode";
     }
     changeColors()
 })
+
+function colorizeGrid() {
+    let gridCells = document.getElementsByClassName("gridCell");
+    for (gridCell = 0; gridCell < gridCells.length; gridCell++) {
+
+        if (!isErasing) {
+            gridCell.addEventListener("mouseenter", (event) => {
+                if(!colorIsRandom) {
+                    gridCell.style.backgroundColor = "#EA1179";
+                }
+                else {
+                    gridCell.style.background = randomizeColors();
+                }
+               
+            });
+        }
+        // isErasing == true;
+        else {
+            erase();
+        }
+       
+    }
+    
+}
+
+
 
 function changeColors() {
 
@@ -62,8 +117,9 @@ function generateGrid(size) {
         gridCell.style.background = "white";
         gridCell.style.border = "1px solid lightgray";
 
+        isErasing = false;
+
         gridCell.addEventListener("mouseenter", (event) => {
-            console.log("Mouse entered the element");
             if(!colorIsRandom) {
                 gridCell.style.backgroundColor = "#EA1179";
             }
@@ -95,4 +151,5 @@ function randomizeColors() {
 
 
 generateGrid(16);
-randomizeColors();
+changeColors();
+//randomizeColors();

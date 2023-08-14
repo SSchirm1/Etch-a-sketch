@@ -2,27 +2,42 @@
 body {
 
     margin: 0 auto;
+   
     background: #241468;
     color: white;
     font-family: 'Courier New', Courier, monospace;
 }
+
 
 h1 {
     font-size: 50px;
     
 }
 
+.pageContent {
+    display: flex;
+    margin-top: 50px;
+    padding: 0px 50px;
+}
+
+.optionsContainer {
+    flex: 1;
+}
+
 .optionsContainer > * {
     margin: 20px;
 }
 
-#colorButton {
+.button {
+    padding: 10px;
+    width: 200px;
     margin: 20px;
-    background: blue;
+    background: white;
     
-    border-radius: 10px;
-    height: 50px;
-    width: 100px;
+    border-radius: 2px;
+    font-size: 20px;
+  
+  
 }
 
 .pageContent > * {
@@ -30,11 +45,7 @@ h1 {
     height: 100%;
 }
 
-button {
-    width: 100px;
-    height: 50px;
-    left: 50%;
-}
+
 
 .header {
     background: #EA1179;
@@ -45,8 +56,8 @@ button {
 }
 
 #gridContainer{
-    width: 600px;
-    height: 600px;
+    width: 50vw;
+    height: 50vw;
     background: purple;
     margin: 0 auto;
     margin-top: 30px;
@@ -57,7 +68,7 @@ button {
 
 .sliderContainer {
     left: 50%;
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
 }
 
