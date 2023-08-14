@@ -40,16 +40,28 @@ function erase() {
     
 }
 
+function colorSelected(element) {
+    chosenColor = element.value;
+    colorButton.style.background = chosenColor;
+}
+
 colorButton.addEventListener("click", function() {
     colorIsRandom = !colorIsRandom;
     console.log("color is random" + colorIsRandom);
     if(colorIsRandom) {
         colorButton.innerHTML = "Rainbow mode";
+        colorButton.style.background = "white";
     }
     else {
         colorButton.innerHTML = "One color mode";
+        
+        if (!colorIsRandom) {
+            colorButton.style.background = chosenColor;
+        }
+        
+       
     }
-    changeColors()
+    //changeColors()
 })
 
 function colorizeGrid() {
@@ -59,7 +71,8 @@ function colorizeGrid() {
         if (!isErasing) {
             gridCell.addEventListener("mouseenter", (event) => {
                 if(!colorIsRandom) {
-                    gridCell.style.backgroundColor = "#EA1179";
+                    console.log(chosenColor);
+                    gridCell.style.backgroundColor = chosenColor;
                 }
                 else {
                     gridCell.style.background = randomizeColors();
@@ -77,7 +90,7 @@ function colorizeGrid() {
 }
 
 
-
+/*
 function changeColors() {
 
     console.log("changing colors");
@@ -99,7 +112,7 @@ function changeColors() {
 
         }
     }
-}
+}*/
 
 slider.addEventListener("input", function() {
     let value = slider.value;
@@ -129,7 +142,7 @@ function generateGrid(size) {
             }
             else {
                 if(!colorIsRandom) {
-                    gridCell.style.backgroundColor = "#EA1179";
+                    gridCell.style.backgroundColor = chosenColor;
                 }
                 else {
                     gridCell.style.background = randomizeColors();
@@ -161,5 +174,4 @@ function randomizeColors() {
 
 
 generateGrid(16);
-changeColors();
 //randomizeColors();
