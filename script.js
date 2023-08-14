@@ -27,13 +27,17 @@ eraseButton.addEventListener("click", function() {
 
 function erase() {
     let gridCells = document.getElementsByClassName("gridCell");
+    console.log(gridCells.length);
 
-    for (i = 0; i < gridCells.length; i++) {
+
+    // something wrong here
+    for (let i = 0; i < gridCells.length; i++) {
         gridCells[i].addEventListener("mouseover", function() {
-            console.log(gridCells[i]);
-            gridCells[i].style.background = "white";
+            gridCells[i].style.backgroundColor = "white";
         })
     }
+
+    
 }
 
 colorButton.addEventListener("click", function() {
@@ -120,12 +124,18 @@ function generateGrid(size) {
         isErasing = false;
 
         gridCell.addEventListener("mouseenter", (event) => {
-            if(!colorIsRandom) {
-                gridCell.style.backgroundColor = "#EA1179";
+            if (isErasing) {
+                erase();
             }
             else {
-                gridCell.style.background = randomizeColors();
+                if(!colorIsRandom) {
+                    gridCell.style.backgroundColor = "#EA1179";
+                }
+                else {
+                    gridCell.style.background = randomizeColors();
+                }
             }
+            
            
         });
     }
